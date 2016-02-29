@@ -1,12 +1,11 @@
 package com.elementanalytics.terraform_azure_example
 
-import akka.actor.{ ActorSystem, Props }
+import akka.actor.{ Actor, ActorSystem, Props }
 import akka.io.IO
 import akka.pattern.ask
 import akka.util.Timeout
 import scala.concurrent.duration._
 import spray.can.Http
-import akka.actor._
 import spray.routing._
 
 object ServiceActor {
