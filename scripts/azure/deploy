@@ -1,0 +1,11 @@
+#!/bin/bash
+set -eu
+set -o pipefail
+
+uuid="$(date +%s)"
+azure group create -n "ExampleResourceGroup$uuid" -l "South Central US"
+azure group deployment create -f deploy_template.json \
+    -p "$(jq -n --arg uuid "$uuid" '{"deploymentName": {"value": $uuid}}')" \
+    -g "ExampleResourceGroup$uuid" -n "ExampleTestDeploymeny$uuid"
+
+
