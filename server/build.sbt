@@ -31,4 +31,9 @@ libraryDependencies ++= Seq(
   "io.spray" %% "spray-client" % sprayVersion
 )
 
-Revolver.settings
+enablePlugins(JavaAppPackaging)
+
+enablePlugins(DockerPlugin)
+
+dockerExposedPorts += 5000
+
